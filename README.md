@@ -35,7 +35,7 @@ Vectrion follows a layered, fault-isolated architecture:
 - Authentication
 
 **Async Ingestion**
-- RabbitMQ
+- Redis (used for the demo in place of RabbitMQ for easier setup)
 - Celery Workers
 - Retry with exponential backoff
 - Dead Letter Queue support
@@ -119,7 +119,7 @@ Metrics and tracing hooks are built into:
 
 - FastAPI
 - Celery
-- RabbitMQ
+- Redis (used for the demo instead of RabbitMQ for easy local demonstration)
 - PostgreSQL
 - Qdrant
 - Redis
