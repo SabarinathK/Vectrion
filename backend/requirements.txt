@@ -19,5 +19,6 @@ langchain-chroma==0.2.0
 langchain-google-genai==2.0.8
 langchain-groq==0.2.4
 langgraph==0.2.66
+hnswlib
 chromadb==0.5.23
 pydantic[email]

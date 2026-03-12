@@ -28,7 +28,7 @@
     volumes:
       - ./backend:/app
       - chroma_data:/app/chroma
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
 
   worker:
     build:
@@ -41,7 +41,7 @@
     volumes:
       - ./backend:/app
       - chroma_data:/app/chroma
-    command: celery -A app.platform.tasks.worker.celery_app worker -l info
+    command: celery -A src.apps.ingestion.tasks.celery_app worker -l info
 
   flower:
     build:
@@ -55,7 +55,7 @@
       - "5555:5555"
     volumes:
       - ./backend:/app
-    command: celery -A app.platform.tasks.worker.celery_app flower --port=5555
+    command: celery -A src.apps.ingestion.tasks.celery_app flower --port=5555
 
   frontend:
     image: node:20

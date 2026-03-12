@@ -1,15 +1,15 @@
-﻿from collections.abc import Generator
+from collections.abc import Generator
 
 from sqlmodel import Session, SQLModel, create_engine
 
-from app.common.config import get_settings
+from src.common.config import get_settings
 
 settings = get_settings()
 engine = create_engine(settings.database_url, pool_pre_ping=True)
 
 
 def init_db() -> None:
-    import app.platform.db.models
+    import src.platform.db.models
 
     SQLModel.metadata.create_all(engine)
 
